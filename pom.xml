@@ -20,6 +20,10 @@
             <id>worldedit-worldguard-repo</id>
             <url>https://maven.enginehub.org/repo/</url>
         </repository>
+    <repository>
+        <id>spigot-repo</id>
+        <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    </repository>
     </repositories>
     <build>
         <finalName>${project.name}</finalName>
