@@ -174,7 +174,7 @@ public class WeatherHandler
 	
 	public static Boolean isDesert(Location loc)
 	{		
-		Biome[] desert = {Biome.DESERT, Biome.DESERT_HILLS, Biome.DESERT_LAKES};
+		Biome[] desert = {Biome.DESERT};
 		Biome bloc = loc.getWorld().getBiome(loc.getBlockX(), loc.getBlockZ());
 		for(Biome b : desert) {
 			if(b.equals(bloc)) {
@@ -191,8 +191,7 @@ public class WeatherHandler
 		}
 		
 		//{Biome.SAVANNA, Biome.MESA, Biome.MESA_CLEAR_ROCK, Biome.MESA_ROCK, Biome.SAVANNA_ROCK};
-		Biome[] otherdry = {Biome.SAVANNA, Biome.SAVANNA_PLATEAU, Biome.SHATTERED_SAVANNA, 
-				Biome.SHATTERED_SAVANNA_PLATEAU, Biome.BADLANDS, Biome.BADLANDS_PLATEAU};
+		Biome[] otherdry = {Biome.SAVANNA, Biome.SAVANNA_PLATEAU, Biome.BADLANDS};
 		Biome bloc = loc.getWorld().getBiome(loc.getBlockX(), loc.getBlockZ());
 		for(Biome b : otherdry) {
 			if(b.equals(bloc)) {
@@ -229,8 +228,8 @@ public class WeatherHandler
 		Biome[] snowbiomes = {Biome.ICE_MOUNTAINS, Biome.ICE_FLATS, Biome.COLD_BEACH,
 				Biome.TAIGA_COLD, Biome.TAIGA_COLD_HILLS, Biome.FROZEN_OCEAN, Biome.FROZEN_RIVER};
 		 */
-		Biome[] snowbiomes = {Biome.SNOWY_BEACH, Biome.SNOWY_MOUNTAINS, Biome.SNOWY_TAIGA, Biome.SNOWY_TAIGA_HILLS, Biome.SNOWY_TAIGA_MOUNTAINS,
-				Biome.SNOWY_TUNDRA, Biome.FROZEN_OCEAN, Biome.FROZEN_RIVER, Biome.DEEP_FROZEN_OCEAN, Biome.ICE_SPIKES, Biome.MOUNTAINS, Biome.MOUNTAIN_EDGE};
+		Biome[] snowbiomes = {Biome.SNOWY_BEACH, Biome.SNOWY_TAIGA,
+				Biome.FROZEN_OCEAN, Biome.FROZEN_RIVER, Biome.DEEP_FROZEN_OCEAN, Biome.ICE_SPIKES};
 		Biome bloc = loc.getWorld().getBiome(loc.getBlockX(), loc.getBlockZ());
 		
 		for(Biome b : snowbiomes) {
