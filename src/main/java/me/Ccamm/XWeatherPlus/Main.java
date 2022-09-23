@@ -41,7 +41,9 @@ public class Main extends JavaPlugin
 	{
 		try {
 			WorldGuardManager.setUp();
-		} catch(NoClassDefFoundError e) {}
+		} 
+		catch(NoClassDefFoundError e) {}
+		catch (IllegalStateException e) {}
 	}
 	
 	@Override

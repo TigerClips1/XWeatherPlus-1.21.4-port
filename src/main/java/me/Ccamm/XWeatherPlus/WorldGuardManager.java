@@ -20,6 +20,7 @@ public class WorldGuardManager
 {
 	private static WorldGuardManager wgm = null;
 	private static Flag<?> NO_WEATHER;
+	private static boolean enabled = false;
 	
 	private WorldGuardManager()
 	{	
@@ -48,12 +49,14 @@ public class WorldGuardManager
 	{
 		if(wgm == null) {
 			wgm = new WorldGuardManager();
+			enabled = true;
 		}
 		return wgm;
 	}
 	
 	public static boolean locationIsProtected(Location loc) throws NoClassDefFoundError
 	{
+		if (!enabled) return false;
 		RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
 		RegionQuery query = container.createQuery();
 		ApplicableRegionSet set = query.getApplicableRegions(BukkitAdapter.adapt(loc));
