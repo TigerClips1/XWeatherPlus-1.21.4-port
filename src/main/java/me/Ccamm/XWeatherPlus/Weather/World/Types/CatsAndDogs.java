@@ -11,7 +11,7 @@ import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Ocelot;
+import org.bukkit.entity.Cat;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Wolf;
 
@@ -79,7 +79,7 @@ public class CatsAndDogs extends WorldWeather
 			}
 			loc = le.getLocation();
 			if(loc.getBlockY() <= WeatherHandler.getHighestY(loc)+1) {
-				if(le.getType().equals(EntityType.OCELOT)) {
+				if(le.getType().equals(EntityType.CAT)) {
 					loc.getWorld().playSound(loc, Sound.ENTITY_CAT_AMBIENT, (float) 0.2, 0);
 				} else {
 					loc.getWorld().playSound(loc, Sound.ENTITY_WOLF_AMBIENT, (float) 0.2, 0);
@@ -178,15 +178,17 @@ public class CatsAndDogs extends WorldWeather
 	
 	private void spawnCat(Location loc, Random r)
 	{
-		Ocelot cat = (Ocelot) loc.getWorld().spawnEntity(loc, EntityType.OCELOT);
-		Ocelot.Type[] cattypes = Ocelot.Type.values();
+		Cat cat = (Cat) loc.getWorld().spawnEntity(loc, EntityType.CAT);
+		Cat.Type[] cattypes = Cat.Type.values();
 		cat.setCatType(cattypes[r.nextInt(cattypes.length)]);
+		cat.setInvulnerable(true);
 		toberemoved.add((LivingEntity) cat);
 	}
 	
 	private void spawnDog(Location loc)
 	{
 		Wolf dog = (Wolf) loc.getWorld().spawnEntity(loc, EntityType.WOLF);
+		dog.setInvulnerable(true);
 		toberemoved.add((LivingEntity) dog);
 	}
 }
