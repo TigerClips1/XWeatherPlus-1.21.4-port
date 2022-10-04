@@ -2,10 +2,7 @@ package me.Ccamm.XWeatherPlus.Weather.World.Types;
 
 import java.util.Random;
 
-import org.bukkit.Location;
-import org.bukkit.Particle;
-import org.bukkit.Sound;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
@@ -109,7 +106,7 @@ public class HeavyRain extends WorldWeather
 	private void waterDrop(Location loc)
 	{
 		loc.getWorld().spawnParticle(Particle.WATER_SPLASH, loc, 5);
-		loc.getWorld().playSound(loc, Sound.WEATHER_RAIN, (float) 0.5, 0);
+		loc.getWorld().playSound(loc, Sound.WEATHER_RAIN, SoundCategory.WEATHER, (float) 0.5, 0);
 	}
 	
 	@Override

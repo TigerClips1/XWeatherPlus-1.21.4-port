@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -89,7 +90,7 @@ public class Events implements Listener
 		if(!HailStorm.makeSound()) {return;}
 		Snowball sb = (Snowball) e.getEntity();
 		if(sb.hasMetadata("hailstone")) {
-			sb.getWorld().playSound(sb.getLocation(), Sound.BLOCK_STONE_HIT, (float) 0.15, 0);
+			sb.getWorld().playSound(sb.getLocation(), Sound.BLOCK_STONE_HIT, SoundCategory.WEATHER, (float) 0.15, 0);
 		}
 	}
 }

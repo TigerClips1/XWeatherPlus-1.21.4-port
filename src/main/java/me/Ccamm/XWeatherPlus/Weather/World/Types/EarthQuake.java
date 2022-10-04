@@ -3,10 +3,7 @@ package me.Ccamm.XWeatherPlus.Weather.World.Types;
 import java.util.HashMap;
 import java.util.Random;
 
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -90,7 +87,7 @@ public class EarthQuake extends WorldWeather
 					if(shouldNotIgnore(loc)) {
 						loc.getWorld().spawnFallingBlock(loc, b.getBlockData());
 						loc.getBlock().setType(Material.AIR);
-						loc.getWorld().playSound(loc, Sound.BLOCK_GRASS_BREAK, (float) 0.2, (float) 0.5);
+						loc.getWorld().playSound(loc, Sound.BLOCK_GRASS_BREAK, SoundCategory.WEATHER, (float) 0.2, (float) 0.5);
 					}
 					blockDrop(loc, r);
 				}
@@ -147,7 +144,7 @@ public class EarthQuake extends WorldWeather
 					loc = b.getLocation();
 					loc.getWorld().spawnFallingBlock(loc, b.getBlockData());
 					loc.getBlock().setType(Material.AIR);
-					loc.getWorld().playSound(loc, Sound.BLOCK_GRASS_BREAK, (float) 0.2, (float) 0.5);
+					loc.getWorld().playSound(loc, Sound.BLOCK_GRASS_BREAK, SoundCategory.WEATHER, (float) 0.2, (float) 0.5);
 				}
 			}
 		}

@@ -7,6 +7,7 @@ import java.util.Random;
 
 import org.bukkit.Location;
 import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
@@ -27,12 +28,12 @@ public class CatsAndDogs extends WorldWeather
 	private static int playerradius;
 	private static double chanceofcat;
 	private static int particlecount;
-	
+
 	private CatsAndDogs(FileConfiguration config) {
 		super("CatsAndDogs", config, 10);
 		WorldWeather.addWeatherType(this);
 	}
-	
+
 	public static CatsAndDogs setUpCatsAndDogs(FileConfiguration config)
 	{
 		if(catsanddogs == null) {
@@ -43,7 +44,7 @@ public class CatsAndDogs extends WorldWeather
 		}
 		return catsanddogs;
 	}
-	
+
 	@Override
 	public void loadMoreOptions(FileConfiguration config)
 	{
@@ -51,13 +52,13 @@ public class CatsAndDogs extends WorldWeather
 		particlecount = config.getInt("CatsAndDogs.AnimalCount");
 		chanceofcat = config.getDouble("CatsAndDogs.CatChance");
 	}
-	
+
 	@Override
 	protected void startWeather(World w, int dur)
 	{
 		WeatherHandler.setRain(w, dur);
 	}
-	
+
 	@Override
 	protected void weatherEffect(World w)
 	{
@@ -68,7 +69,7 @@ public class CatsAndDogs extends WorldWeather
 		}
 		removeStillAnimals();
 	}
-	
+
 	private void removeStillAnimals()
 	{
 		List<LivingEntity> remove = new ArrayList<LivingEntity>();
@@ -80,20 +81,20 @@ public class CatsAndDogs extends WorldWeather
 			loc = le.getLocation();
 			if(loc.getBlockY() <= WeatherHandler.getHighestY(loc)+1) {
 				if(le.getType().equals(EntityType.CAT)) {
-					loc.getWorld().playSound(loc, Sound.ENTITY_CAT_AMBIENT, (float) 0.2, 0);
+					loc.getWorld().playSound(loc, Sound.ENTITY_CAT_AMBIENT, SoundCategory.WEATHER, (float) 0.2, 0);
 				} else {
-					loc.getWorld().playSound(loc, Sound.ENTITY_WOLF_AMBIENT, (float) 0.2, 0);
+					loc.getWorld().playSound(loc, Sound.ENTITY_WOLF_AMBIENT, SoundCategory.WEATHER, (float) 0.2, 0);
 				}
 				remove.add(le);
 				le.remove();
 			}
 		}
-		
+
 		for(LivingEntity le : remove) {
 			toberemoved.remove(le);
 		}
 	}
-	
+
 	private void removeAllAnimals(World w)
 	{
 		List<LivingEntity> remove = new ArrayList<LivingEntity>();
@@ -102,13 +103,13 @@ public class CatsAndDogs extends WorldWeather
 				remove.add(le);
 			}
 		}
-		
+
 		for(LivingEntity le : remove) {
 			toberemoved.remove(le);
 			le.remove();
 		}
 	}
-	
+
 	@Override
 	protected void endWeather(World world)
 	{
@@ -119,7 +120,7 @@ public class CatsAndDogs extends WorldWeather
 			WeatherHandler.setSunny(world, duration);
 		}
 	}
-	
+
 	private void spawnAnimals(Player p)
 	{
 		Random r = new Random();
@@ -127,7 +128,7 @@ public class CatsAndDogs extends WorldWeather
 		double dx;
 		double dz;
 		int n = 0;
-		
+
 		if(r.nextDouble() <= spawnaboveplayer) {
 			n++;
 			dx = 1.5*r.nextDouble()*(r.nextBoolean() ? 1:-1);
@@ -150,7 +151,7 @@ public class CatsAndDogs extends WorldWeather
 				}
 			}
 		}
-		
+
 		for(int i = 0; i < particlecount-n; i++) {
 			dx = playerradius*r.nextDouble()*(r.nextBoolean() ? 1:-1);
 			dz = playerradius*r.nextDouble()*(r.nextBoolean() ? 1:-1);
@@ -162,7 +163,7 @@ public class CatsAndDogs extends WorldWeather
 			}
 			loc.setY(p.getWorld().getMaxHeight());
 			loc.subtract(0, heightdif*r.nextDouble(), 0);
-			
+
 			if(r.nextDouble() <= chanceofcat) {
 				loc.setY(p.getLocation().getY() + 90);
 				loc.subtract(0, (r.nextBoolean() ? 1:-1)*heightdif*r.nextDouble(), 0);
@@ -175,7 +176,7 @@ public class CatsAndDogs extends WorldWeather
 			}
 		}
 	}
-	
+
 	private void spawnCat(Location loc, Random r)
 	{
 		Cat cat = (Cat) loc.getWorld().spawnEntity(loc, EntityType.CAT);
@@ -184,7 +185,7 @@ public class CatsAndDogs extends WorldWeather
 		cat.setInvulnerable(true);
 		toberemoved.add((LivingEntity) cat);
 	}
-	
+
 	private void spawnDog(Location loc)
 	{
 		Wolf dog = (Wolf) loc.getWorld().spawnEntity(loc, EntityType.WOLF);

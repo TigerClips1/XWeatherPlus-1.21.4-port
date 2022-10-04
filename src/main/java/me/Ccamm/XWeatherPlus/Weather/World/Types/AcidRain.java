@@ -3,11 +3,7 @@ package me.Ccamm.XWeatherPlus.Weather.World.Types;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Particle;
-import org.bukkit.Sound;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.ArmorStand;
@@ -98,7 +94,7 @@ public class AcidRain extends WorldWeather
 	private void acidDrop(Location loc)
 	{
 		loc.getWorld().spawnParticle(Particle.SLIME, loc, 5);
-		loc.getWorld().playSound(loc, Sound.ENTITY_SLIME_SQUISH_SMALL, (float) 0.4, 0);
+		loc.getWorld().playSound(loc, Sound.ENTITY_SLIME_SQUISH_SMALL, SoundCategory.WEATHER, (float) 0.4, 0);
 		infectLocation(loc);
 	}
 	
