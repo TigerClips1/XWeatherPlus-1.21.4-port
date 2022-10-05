@@ -245,7 +245,7 @@ public class WeatherHandler
 		if(loadchunks) {
 			return true;
 		}
-		return loc.getWorld().isChunkLoaded(loc.getBlockX()/16, loc.getBlockZ()/16);
+		return loc.getWorld().isChunkLoaded(loc.getBlockX() >> 4, loc.getBlockZ() >> 4);
 	}
 	
 	public static boolean locationIsProtected(Location loc)
