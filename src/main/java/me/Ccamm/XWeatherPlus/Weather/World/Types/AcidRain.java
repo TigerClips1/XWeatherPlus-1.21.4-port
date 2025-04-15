@@ -93,7 +93,7 @@ public class AcidRain extends WorldWeather
 	
 	private void acidDrop(Location loc)
 	{
-		loc.getWorld().spawnParticle(Particle.SLIME, loc, 5);
+		loc.getWorld().spawnParticle(Particle.ITEM_SLIME, loc, 5);
 		loc.getWorld().playSound(loc, Sound.ENTITY_SLIME_SQUISH_SMALL, SoundCategory.WEATHER, (float) 0.4, 0);
 		infectLocation(loc);
 	}

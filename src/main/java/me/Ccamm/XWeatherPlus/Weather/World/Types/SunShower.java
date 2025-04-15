@@ -71,7 +71,7 @@ public class SunShower extends WorldWeather
 			loc.add(dx, 0, dz);
 			if(!WeatherHandler.isLocationLoaded(loc)) {continue;}
 			loc.setY(p.getWorld().getMaxHeight());
-			p.spawnParticle(Particle.DRIP_WATER, loc, 1);
+			p.spawnParticle(Particle.DRIPPING_WATER, loc, 1);
 		}
 	}
 }

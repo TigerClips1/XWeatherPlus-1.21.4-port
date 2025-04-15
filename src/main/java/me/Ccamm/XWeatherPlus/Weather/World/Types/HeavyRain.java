@@ -105,7 +105,7 @@ public class HeavyRain extends WorldWeather
 	
 	private void waterDrop(Location loc)
 	{
-		loc.getWorld().spawnParticle(Particle.WATER_SPLASH, loc, 5);
+		loc.getWorld().spawnParticle(Particle.SPLASH, loc, 5);
 		loc.getWorld().playSound(loc, Sound.WEATHER_RAIN, SoundCategory.WEATHER, (float) 0.5, 0);
 	}
 	

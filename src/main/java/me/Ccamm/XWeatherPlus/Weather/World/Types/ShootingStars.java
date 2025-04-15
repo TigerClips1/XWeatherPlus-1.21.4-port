@@ -97,7 +97,7 @@ public class ShootingStars extends WorldWeather
 		for(double x = 0; x <= starsize; x += dd) {
 			for(double z = 0; z <= starsize; z += dd) {
 				loc.add(x,0,z);
-				p.spawnParticle(Particle.FIREWORKS_SPARK, loc, 0, v[0], v[1], v[2], speed);
+				p.spawnParticle(Particle.FIREWORK, loc, 0, v[0], v[1], v[2], speed);
 				loc.subtract(x,0,z);
 			}
 		}

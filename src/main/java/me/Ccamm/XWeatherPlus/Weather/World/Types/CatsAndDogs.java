@@ -177,6 +177,8 @@ public class CatsAndDogs extends WorldWeather
 		}
 	}
 
+	// Let's try not make  stuff more complicated than it should be
+	@Deprecated(forRemoval = true)
 	private void spawnCat(Location loc, Random r)
 	{
 		Cat cat = (Cat) loc.getWorld().spawnEntity(loc, EntityType.CAT);

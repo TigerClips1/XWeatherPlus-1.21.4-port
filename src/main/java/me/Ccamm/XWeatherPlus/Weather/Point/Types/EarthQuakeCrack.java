@@ -128,7 +128,7 @@ public class EarthQuakeCrack
 					&& !cancelled) {
 				if(!loc.getBlock().getType().equals(Material.BEDROCK)) {
 					loc.getBlock().setType(material);
-					loc.getWorld().spawnParticle(Particle.EXPLOSION_NORMAL, loc, 0, 0, 0, 0);
+					loc.getWorld().spawnParticle(Particle.EXPLOSION, loc, 0, 0, 0, 0);
 				}
 			}
 			currentperp+=0.75;
@@ -164,7 +164,7 @@ public class EarthQuakeCrack
 					&& !loc.getBlock().getType().equals(Material.LAVA)) {
 					loc.getWorld().spawnFallingBlock(loc, loc.getBlock().getBlockData());
 					loc.getBlock().setType(Material.AIR);
-					loc.getWorld().spawnParticle(Particle.EXPLOSION_NORMAL, loc, 0, 0, 0, 0);
+					loc.getWorld().spawnParticle(Particle.EXPLOSION, loc, 0, 0, 0, 0);
 				}
 			}
 			height++;

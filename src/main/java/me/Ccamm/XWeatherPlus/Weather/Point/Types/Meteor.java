@@ -67,7 +67,7 @@ public class Meteor
 						loc.setX(location.getX() + dx);
 						loc.setY(location.getY() + 5*r.nextDouble());
 						loc.setZ(location.getZ() + dz);
-						p.spawnParticle((r.nextDouble() <= firepartchance ? Particle.FLAME : Particle.SMOKE_LARGE), 
+						p.spawnParticle((r.nextDouble() <= firepartchance ? Particle.FLAME : Particle.SMOKE),
 								loc, 0, 0, 0, 0);
 					}
 				}

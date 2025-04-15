@@ -89,7 +89,7 @@ public class Windy extends WorldWeather
 			
 			loc.setY(dy);
 			if(!WeatherHandler.isDesert(loc) && WeatherHandler.isLocationLoaded(loc)) {
-				p.spawnParticle(Particle.SMOKE_NORMAL, loc, 0, vp[0],vp[1],vp[2], speed);
+				p.spawnParticle(Particle.SMOKE, loc, 0, vp[0],vp[1],vp[2], speed);
 			}
 		}
 	}

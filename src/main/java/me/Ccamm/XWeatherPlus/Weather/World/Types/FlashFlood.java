@@ -83,7 +83,7 @@ public class FlashFlood extends WorldWeather
 		Block b = loc.getBlock();
 		if(b.getType().equals(Material.WATER)) {
 			return;
-		} else if(b.getType().equals(Material.GRASS) || b.getType().equals(Material.TALL_GRASS)) {
+		} else if(b.getType().equals(Material.GRASS_BLOCK) || b.getType().equals(Material.TALL_GRASS)) {
 			floodLocation(loc);
 		} else {
 			loc.add(0,1,0);
